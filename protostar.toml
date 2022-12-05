@@ -1,7 +1,27 @@
 [project]
 protostar-version = "0.8.1"
 lib-path = "lib"
+cairo-path = ["./lib/cairo-contracts/src"]
 
 [contracts]
 main = ["src/main.cairo"]
+starkpay = ["src/starkpay.cairo"]
+
+[format]
+target = ["src", "tests"]
+ignore-broken = true
+
+[profile.devnet.project]
+gateway-url = "http://127.0.0.1:5050/"
+chain-id = 1536727068981429685321
+
+# https://github.com/Shard-Labs/starknet-devnet
+["profile.devnet.protostar.deploy"]
+gateway-url="http://127.0.0.1:5050/"
+
+["profile.testnet.protostar.deploy"]
+network="testnet"
+
+["profile.mainnet.protostar.deploy"]
+network="mainnet"
 
